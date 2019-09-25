@@ -27,11 +27,15 @@ function completeTodo(e) {
 	} else {
 		e.target.setAttribute("aria-checked", true);
 		showMessage(target);
-		setTimeout(function(param) {
-			param.target.parentNode.parentNode.lastElementChild.style.visibility =
-				"visible";
+		setTimeout(function() {
+			deleteMessage(target);
 		}, 2000);
 	}
+}
+
+function deleteMessage(param) {
+	param.target.parentNode.parentNode.lastElementChild.style.visibility =
+		"hidden";
 }
 function showMessage(param) {
 	param.target.parentNode.parentNode.lastElementChild.style.visibility =
